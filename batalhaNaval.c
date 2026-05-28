@@ -18,17 +18,34 @@ int main() {
        tabuleiro[i][j] = 0;
     }
     }
-    //A pedido do professor, coloquei o número 3 nas casas correspondentes simulando dois navios. 1 na vertical e outro na horizontal
+    //Abaixo o código da posição para o návio ficar na vertical
     tabuleiro[2][2] = 3;
     tabuleiro[3][2] = 3;
     tabuleiro[4][2] = 3;
-
+    //Abaixo o código da posição para o návio ficar na horizontal
     tabuleiro[1][4] = 3;
     tabuleiro[1][5] = 3;
     tabuleiro[1][6] = 3;
+    //Abaixo o código da posição para o návio ficar na digonal
+    int linha_diag = 5;
+    int coluna_diag = 5;
+    for (int k = 0; k < 3; k++)
+    {
+        tabuleiro [linha_diag + k][coluna_diag + k] = 3;
+    }
+    //Abaixo o código da posição para o návio ficar na digonal invertida
+    int linha_diag2 = 2;
+    int coluna_diag2 = 8;
+    for (int k = 0; k < 3; k++)
+    {
+        tabuleiro [linha_diag2 + k][coluna_diag2 - k] = 3;
+    }
+    
+
+    
 
    //Esse for é para colocar as letras na parte de cima do tabuleiro. Incluindo um espaço para alinhar
-    printf("     ");
+    printf("  ■ ");
     for (int j = 0; j < 10; j++)
     {
         printf("%c ", menu[j]);
@@ -39,13 +56,13 @@ int main() {
     printf(" ");
     for (int i = 0; i < 10; i++)
     {
-        //tive que colocar i + 1 para que a numeração possa começar de 1 ao invés de 0.
-        printf("%i- ", i + 1);
         if (i < 9)
             {
-               printf(" ");
+               printf("-");
             }
-
+        //tive que colocar i + 1 para que a numeração possa começar de 1 ao invés de 0.
+        printf("%i ", i + 1);
+        
         for (int j = 0; j < 10; j++)
         {
             printf("%i ", tabuleiro[i][j]);
